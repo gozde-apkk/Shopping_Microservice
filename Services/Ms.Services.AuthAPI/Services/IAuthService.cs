@@ -6,6 +6,6 @@ namespace Ms.Services.AuthAPI.Services
     {
         Task<LoginResponseDto> Login(LoginRequestDto loginRequestDto);
         Task<string> Register(RegisterRequestDto registerRequestDto);
-        
+        Task<bool> AssignRole(string email, string roleName);
     }
 }
