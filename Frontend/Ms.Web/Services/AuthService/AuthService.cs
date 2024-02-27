@@ -1,6 +1,7 @@
 ﻿using Ms.Web.Model;
 using Ms.Web.Models;
 using Ms.Web.Utility;
+using static System.Net.WebRequestMethods;
 
 namespace Ms.Web.Services.AuthService
 {
@@ -19,7 +20,7 @@ namespace Ms.Web.Services.AuthService
                 ApiType = SD.ApiType.POST,
                 Data = registrationRequestDto,
                 Url = SD.AuthAPIBase + "/api/auth/AssignRole"
-            });
+            }, withBearer : false);
         }
 
         public async Task<ResponseDto?> LoginAsync(LoginRequestDto loginRequestDto)
@@ -28,8 +29,8 @@ namespace Ms.Web.Services.AuthService
             {
                 ApiType = SD.ApiType.POST,
                 Data = loginRequestDto,
-                Url = SD.AuthAPIBase + "/api/auth/login"
-            });
+                Url = "https://localhost:7002/api/auth/login"
+            }, withBearer: false);
         }
 
         public async Task<ResponseDto?> RegisterAsync(RegisterRequestDto registrationRequestDto)
@@ -38,8 +39,8 @@ namespace Ms.Web.Services.AuthService
             {
                 ApiType = SD.ApiType.POST,
                 Data = registrationRequestDto,
-                Url = SD.AuthAPIBase + "/api/auth/register"
-            });
+                Url = SD.AuthAPIBase + "https://localhost:7002/api/auth/register"
+            }, withBearer: false);
         }
     }
 }

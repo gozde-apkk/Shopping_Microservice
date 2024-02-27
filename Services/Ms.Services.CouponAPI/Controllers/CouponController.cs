@@ -1,4 +1,5 @@
 ﻿using AutoMapper;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
@@ -10,6 +11,7 @@ namespace Ms.Services.CouponAPI.Controllers
 {
     [Route("api/coupon")]
     [ApiController]
+    [Authorize]
     public class CouponController : ControllerBase
     {
 
@@ -87,6 +89,7 @@ namespace Ms.Services.CouponAPI.Controllers
 
 
         [HttpPost]
+        [Authorize(Roles ="ADMIN")]
         public ResponseDto Create([FromBody] CouponDto couponDto)
         {
             try

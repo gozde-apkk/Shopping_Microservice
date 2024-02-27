@@ -5,7 +5,7 @@ using Ms.Services.AuthAPI.Services;
 
 namespace Ms.Services.AuthAPI.Controllers
 {
-    [Route("api/[controller]")]
+    [Route("api/auth")]
     [ApiController]
     public class AuthAPIController : ControllerBase
     {
